@@ -1,5 +1,4 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,13 +18,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Project Demo',
-            hash: true,
-            template: './src/index.pug'
+            template: './src/index.pug',
+            minify: {
+                collapseWhitespace: false,
+                sortAttributes: true,
+                sortClassName: true,
+                html5: true
+            }
         })
-        // new ExtractTextPlugin({
-        //     filename: './dir/index.html',
-        //     disabled: false,
-        //     allChunks: true
-        // })
     ]
 };
